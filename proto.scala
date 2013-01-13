@@ -4,6 +4,7 @@ import scala.util.Random
 import cc.mallet.types._
 
 trait FV {
+	// TODO add methods for set, get, plusEquals, etc
 	def add(i: Int, v: Double)
 }
 
@@ -21,7 +22,7 @@ trait FVWrapper {
 
 
 /**
- * implements FVGetter using anonymous
+ * implements FVWrapper using anonymous
  * classes and partial function application
  */
 class Fancy extends FVWrapper {
@@ -46,7 +47,7 @@ class Fancy extends FVWrapper {
 }
 
 /**
- * implements FVGetter using a hashmap
+ * implements FVWrapper using a hashmap
  */
 class Plain extends FVWrapper {
 	val m = new scala.collection.mutable.HashMap[String, (Alphabet, AugmentableFeatureVector)]
