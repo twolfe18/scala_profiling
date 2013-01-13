@@ -1,0 +1,16 @@
+
+Travis Wolfe
+January 13, 2013
+
+I wanted to test if I could use partial function application in scala
+to do a very clean implementation of a feature vector that I need for
+another project.
+
+After writing this small test, I think that either:
+1) there is a memory leak in the way scala handles anonymous classes
+2) there is a memory leak/strange behaviour in mallet's AugmentableFeatureVector/Alphabet
+
+If you try to run a reasonable number of runs (say 2500) with a reasonable
+number of adds (say 2500), you cannot run this test in a reasonable
+amount of memory (say 512 MB)
+
