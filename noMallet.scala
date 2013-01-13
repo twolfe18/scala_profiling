@@ -8,15 +8,11 @@ import scala.util.Random
 trait Setter { def set(k: Int, v: Double) }
 
 class PartialFunctionApplier {
-	val m = new HashMap[String, Map[Int, Double]]
-	def register(s: String) {
-		m += (s -> new HashMap[Int, Double])
-	}
+	val m = new HashMap[(String, Int), Double]
 	def partialApply(s: String): Setter = {
 		new Setter {
-			val m_inner = m(s)
 			def set(k: Int, v: Double) {
-				m_inner.put(k, v)
+				m.put((s,k), v)
 			}
 		}
 	}
@@ -48,7 +44,6 @@ object App {
 		val p = new PartialFunctionApplier
 		val keys = List("foo", "bar", "baz")
 		for(k <- keys) {
-			p.register(k)
 			val setter = p.partialApply(k)
 			var iter = 0
 			while(iter < n_adds) {
