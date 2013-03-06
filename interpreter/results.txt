@@ -1,0 +1,21 @@
+
+if I run on the command line (scala benchmark.scala), I get:
+5.3
+5.3
+5.3
+5.3
+5.3
+5.2
+avg = 5.28
+
+if you paste it in the interpreter, I get:
+5.5
+5.8
+5.6
+5.5
+6.1
+5.5
+avg = 5.67
+
+~ 7% difference
+
